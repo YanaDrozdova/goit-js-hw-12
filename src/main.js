@@ -72,6 +72,19 @@ async function onSearchFormSubmit(event) {
   loaderEl.classList.add('is-hidden');
 }
 
+const smoothScrollOnLoadMore = () => {
+  const card = document.querySelector('.gallery-card');
+  const cardHeight = card.getBoundingClientRect().height;
+  const scrollHeight = cardHeight * 2;
+  console.log(scrollHeight);
+
+  window.scrollBy({
+    top: scrollHeight,
+    left: 0,
+    behavior: 'smooth',
+  });
+};
+
 async function onLoadMoreBtnClick(event) {
   event.preventDefault();
   loadMoreBtn.classList.add('is-hidden');
@@ -86,21 +99,9 @@ async function onLoadMoreBtnClick(event) {
     lightbox.refresh();
     page += 1;
     loadMoreBtn.classList.remove('is-hidden');
-    console.log('photosData.totalHits:', photosData.totalHits);
-    console.log('🚀photosData.total:', photosData.total);
 
-    // if (photosData.totalHits === 0) {
-    //   iziToast.show({
-    //     message: "We're sorry, but you've reached the end of search results.",
-    //     position: 'topRight',
-    //     timeout: 4000,
-    //     pauseOnHover: true,
-    //     color: 'red',
-    //   });
-    //   loadMoreBtn.classList.add('is-hidden');
-    //   return;
-    // }
     loaderEl.classList.add('is-hidden');
+    smoothScrollOnLoadMore();
 
     if (page > totalPages) {
       loadMoreBtn.classList.add('is-hidden');
