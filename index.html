@@ -8,7 +8,7 @@
     <script type="module" crossorigin src="/goit-js-hw-12/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-9a8cfc74.js">
     <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-1cd1f9d9.css">
-    <link rel="stylesheet" href="/goit-js-hw-12/assets/index-ff5597a3.css">
+    <link rel="stylesheet" href="/goit-js-hw-12/assets/index-ca33defb.css">
   </head>
   <body>
     <form class="form">
@@ -19,12 +19,15 @@
         required
         autocomplete="off"
       />
-      <button type="submit" class="search-btn">Search</button>
+      <button type="submit" class="btn search-btn">Search</button>
     </form>
     <div class="container">
       <ul class="gallery-list"></ul>
-      <div class="loader position is-hidden"></div>
+      <button type="button" class="btn load-more-btn is-hidden">
+        Load more
+      </button>
     </div>
+    <div class="loader is-hidden"></div>
     
   </body>
 </html>
